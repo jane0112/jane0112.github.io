@@ -5,114 +5,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <style>
-        .accordion {
-            width: 100%;
-            font-size: 25px;
-            background-color: #DCDCDC;
-            border: none;
-            padding-left: 5px;
-            text-align: left;
-            cursor: pointer;
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: rgb(24, 24, 24);
+            color: white;
+
         }
 
+        * {
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .slides img {
+            width: 100%;
+
+        }
+
+        .container {
+            padding: 50px 200px;
+
+
+        }
+
+        .slides {
+            padding: 0;
+
+        }
+
+        .numberText {
+            display: block;
+            float: left;
+            position: absolute;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            text-shadow: rgb(49, 49, 49) 0.1em 0.1em 0.2em;
+            padding-left: 5px;
+        }
+
+        .column {
+            float: left;
+            width: 16.6%;
+            cursor: pointer;
+
+        }
+
+        .demo {
+            opacity: 0.6;
+        }
+
+
+        .prev,
+        .next {
+            padding: 16px;
+            color: white;
+            border-radius: 0 3px 3px 0;
+            position: absolute;
+            width: auto;
+            top: 65%;
+            cursor: pointer;
+            padding: 16px;
+            font-weight: bold;
+            font-size: 25px;
+            user-select: none;
+            -webkit-user-select: none;
+
+        }
+
+        .prev {
+            left: 200px;
+
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 200px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgb(58, 58, 58);
+
+
+        }
 
         .active {
-            background-color: #A9A9A9;
-
+            opacity: 1;
         }
 
-        .accordion:hover {
-            background-color: #A9A9A9;
-            transition: 0.3s;
-        }
-
-
-        .content {
-            display: block;
-            padding: 0 18px;
+        #caption {
+            color: white;
             font-size: 20px;
-            background-color: white;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.5s ease-out;
-        }
+            padding: 10px;
+            text-align: center;
 
-        .accordion:after {
-            content: '\002B';
-            color: #777;
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-        }
-
-        .active:after {
-            content: "\2212";
-            float: right;
         }
     </style>
-
 </head>
 
 <body>
+    <h1>SlideShow Gallery</h1>
+    <div class="container">
+        <div class="slides">
+            <span class="numberText">1 / 6</span>
+            <img src="../pic/APSP9180.JPG" alt="KW2-1" style="width:100%" onclick="currentSlide(1)">
+        </div>
+        <div class="slides">
+            <span class="numberText">2 / 6</span>
+            <img src="../pic/DLQE7394.JPG" alt="Brown Boulevard" style="width:100%" onclick="currentSlide(2)">
+        </div>
+        <div class="slides">
+            <span class="numberText">3 / 6</span>
+            <img src="../pic/ESJK1769.JPG" alt="The Making of an Ordinary Woman" style="width:100%"
+                onclick="currentSlide(3)">
+        </div>
+        <div class="slides">
+            <span class="numberText">4 / 6</span>
+            <img src="../pic/HOUS8845.JPG" alt="Lu-Ya" style="width:100%" onclick="currentSlide(4)">
+        </div>
+        <div class="slides">
+            <span class="numberText">5 / 6</span>
+            <img src="../pic/HTRP3902.JPG" alt="KW2-2" style="width:100%" onclick="currentSlide(5)">
+        </div>
+        <div class="slides">
+            <span class="numberText">6 / 6</span>
+            <img src="../pic/XBZB9720.JPG" alt="Green Tunnel" style="width:100%" onclick="currentSlide(6)">
+        </div>
+        <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlide(1)">&#10095;</a>
 
-
-    <button class="accordion">Section 1</button>
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolores accusantium, temporibus
-            minus perferendis consectetur molestiae nesciunt sint repudiandae esse?</p>
+        <div id="caption"></div>
+        <div class="column">
+            <img src="../pic/APSP9180.JPG" alt="KW2-1" style="width:100%" class="demo" onclick="currentSlide(1)">
+        </div>
+        <div class="column">
+            <img src="../pic/DLQE7394.JPG" alt="Brown Boulevard" style="width:100%" class="demo"
+                onclick="currentSlide(2)">
+        </div>
+        <div class="column">
+            <img src="../pic/ESJK1769.JPG" alt="The Making of an Ordinary Woman" style="width:100%" class="demo"
+                onclick="currentSlide(3)">
+        </div>
+        <div class="column">
+            <img src="../pic/HOUS8845.JPG" alt="Lu-Ya" style="width:100%" class="demo" onclick="currentSlide(4)">
+        </div>
+        <div class="column">
+            <img src="../pic/HTRP3902.JPG" alt="KW2-2" style="width:100%" class="demo" onclick="currentSlide(5)">
+        </div>
+        <div class="column">
+            <img src="../pic/XBZB9720.JPG" alt="Green Tunnel" style="width:100%" class="demo" onclick="currentSlide(6)">
+        </div>
     </div>
-
-    <button class="accordion">Section 2</button>
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolores accusantium, temporibus
-            minus perferendis consectetur molestiae nesciunt sint repudiandae esse?</p>
-    </div>
-
-    <button class="accordion">Section 3</button>
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolores accusantium, temporibus
-            minus perferendis consectetur molestiae nesciunt sint repudiandae esse?</p>
-    </div>
-
 
 
 
 
     <script>
-        var acc = document.getElementsByClassName("accordion");
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var span = document.getElementsByTagName("span")
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    console.log('close')
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function plusSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var demo = document.getElementsByClassName("demo");
+            var caption = document.getElementById("caption")
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < slides.length; i++) {
+                demo[i].className = demo[i].className.replace(" active", "")
+            }
+            slides[slideIndex - 1].style.display = "block";
+            demo[slideIndex - 1].className += " active";
+            caption.innerHTML = demo[slideIndex - 1].alt;
 
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px'
-                    console.log('opens')
-                }
-
-            })
 
 
         }
-
-
-
-
-
-
-
-
-
-
     </script>
+
 </body>
 
 </html>
